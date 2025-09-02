@@ -3,7 +3,7 @@
 @section('content')
 <div class="text-center">
     <h1>Bem-vindo ao ZOOTECNIA </h1>
-    <p>Use o menu acima para acessar Raças, Propriedades, Animais e Vacinações.</p>
+    <p>No menu acima você pode fazer seus cadastros </p>
 
     <div class="row mt-4 justify-content-center">
         <div class="col-md-3">

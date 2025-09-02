@@ -12,9 +12,9 @@ class Propriedade extends Model
 
     protected $fillable = ['nome', 'localizacao'];
 
-    /**
-     * Boot do model para adicionar eventos
-     */
+    
+     //Boot do model para adicionar eventos
+    
     protected static function booted()
     {
         // Evento que dispara ao criar um registro
@@ -35,9 +35,9 @@ class Propriedade extends Model
         });
     }
 
-    /**
-     * Relacionamento: uma propriedade pode ter vários animais
-     */
+    
+     //Relacionamento: uma propriedade pode ter vários animais
+    
     public function animais()
     {
         return $this->hasMany(Animal::class);

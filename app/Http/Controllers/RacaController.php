@@ -8,26 +8,26 @@ use Illuminate\Support\Facades\DB;
 
 class RacaController extends Controller
 {
-    /**
-     * Lista todas as raças.
-     */
+    
+     //Lista todas as raças.
+     
     public function index()
     {
         $racas = Raca::all();
         return view('racas.index', compact('racas'));
     }
 
-    /**
-     * Mostra o formulário para criar uma nova raça.
-     */
+    
+     //Mostra o formulário para criar uma nova raça.
+     
     public function create()
     {
         return view('racas.create');
     }
 
-    /**
-     * Salva uma nova raça, preenchendo automaticamente o menor ID disponível.
-     */
+    
+      //Salva uma nova raça, preenchendo automaticamente o menor ID disponível.
+     
     public function store(Request $request)
     {
         $request->validate([
@@ -52,17 +52,17 @@ class RacaController extends Controller
         return redirect()->route('racas.index')->with('success', 'Raça cadastrada com sucesso!');
     }
 
-    /**
-     * Mostra o formulário de edição de uma raça.
-     */
+    
+     //Mostra o formulário de edição de uma raça.
+    
     public function edit(Raca $raca)
     {
         return view('racas.edit', compact('raca'));
     }
 
-    /**
-     * Atualiza uma raça existente.
-     */
+    
+     //Atualiza uma raça existente.
+     
     public function update(Request $request, Raca $raca)
     {
         $request->validate([
@@ -74,9 +74,9 @@ class RacaController extends Controller
         return redirect()->route('racas.index')->with('success', 'Raça atualizada com sucesso!');
     }
 
-    /**
-     * Remove uma raça.
-     */
+    
+     //Remove uma raça.
+     
     public function destroy(Raca $raca)
     {
         $raca->delete();

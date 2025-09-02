@@ -10,11 +10,11 @@ class Animal extends Model
 {
     use HasFactory;
 
+    protected $table = 'animals'; // força a usar a tabela certa
+
     protected $fillable = ['nome', 'raca_id', 'propriedade_id', 'idade'];
 
-    /**
-     * Boot do model para adicionar eventos
-     */
+    // Boot do model para adicionar eventos
     protected static function booted()
     {
         // Evento que dispara ao criar um registro
@@ -33,7 +33,7 @@ class Animal extends Model
             // Atualiza a sequência do PostgreSQL
             DB::statement('SELECT setval(\'animals_id_seq\', (SELECT COALESCE(MAX(id), 0) FROM animals) + 1, false)');
         });
-    }
+    }   
 
     public function raca()
     {

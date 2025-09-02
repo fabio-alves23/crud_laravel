@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Editar Vacinação</h2>
+<h2>Criar Vacinação</h2>
 
 @if ($errors->any())
 <div class="alert alert-danger">
@@ -13,26 +13,26 @@
 </div>
 @endif
 
-<form action="{{ route('vacinacoes.update', $vacinacao->id) }}" method="POST">
+<form action="{{ route('vacinacoes.store') }}" method="POST">
     @csrf
-    @method('PUT')
     <div class="mb-3">
         <label for="animal_id" class="form-label">Animal</label>
         <select name="animal_id" class="form-select" required>
+            <option value="">Selecione o animal</option>
             @foreach($animais as $animal)
-            <option value="{{ $animal->id }}" {{ $vacinacao->animal_id == $animal->id ? 'selected' : '' }}>{{ $animal->nome }}</option>
+            <option value="{{ $animal->id }}">{{ $animal->nome }}</option>
             @endforeach
         </select>
     </div>
     <div class="mb-3">
-        <label for="nome_vacina" class="form-label">Nome da Vacina</label>
-        <input type="text" name="nome_vacina" class="form-control" id="nome_vacina" value="{{ old('nome_vacina', $vacinacao->nome_vacina) }}" required>
+        <label for="nome_vacina" class="form-label">Nome da vacina</label>
+        <input type="text" name="nome_vacina" class="form-control" id="nome_vacina" value="{{ old('nome_vacina') }}" required>
     </div>
     <div class="mb-3">
         <label for="data_aplicacao" class="form-label">Data de Aplicação</label>
-        <input type="date" name="data_aplicacao" class="form-control" id="data_aplicacao" value="{{ old('data_aplicacao', $vacinacao->data_aplicacao) }}" required>
+        <input type="date" name="data_aplicacao" class="form-control" id="data_aplicacao" value="{{ old('data_aplicacao') }}" required>
     </div>
-    <button type="submit" class="btn btn-success">Atualizar</button>
+    <button type="submit" class="btn btn-success">Salvar</button>
     <a href="{{ route('vacinacoes.index') }}" class="btn btn-secondary">Cancelar</a>
 </form>
 @endsection
