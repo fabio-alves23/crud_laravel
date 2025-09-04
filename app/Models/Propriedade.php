@@ -10,9 +10,9 @@ class Propriedade extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'localizacao'];
+    // Permite atribuição em massa
+    protected $fillable = ['nome', 'localizacao', 'user_id'];
 
-    
      //Boot do model para adicionar eventos
     
     protected static function booted()

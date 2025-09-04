@@ -15,9 +15,6 @@
         <div class="col-md-3">
             <a href="{{ route('animais.index') }}" class="btn btn-warning w-100 mb-2">Animais</a>
         </div>
-        <div class="col-md-3">
-            <a href="{{ route('vacinacoes.index') }}" class="btn btn-danger w-100 mb-2">Vacinações</a>
-        </div>
     </div>
 </div>
 @endsection

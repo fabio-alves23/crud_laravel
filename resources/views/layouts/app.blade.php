@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZOOTECNIA</title>
+    <title>ZOOTECNIA - @yield('title', '')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -14,11 +14,27 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ route('racas.index') }}">Raças</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('propriedades.index') }}">Propriedades</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('animais.index') }}">Animais</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('vacinacoes.index') }}">Vacinações</a></li>
+                </ul>
+
+                <ul class="navbar-nav ms-auto">
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('animais.index') }}">Meus Animais</a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="btn btn-link nav-link">Sair</button>
+                            </form>
+                        </li>
+                    @else
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Registrar</a></li>
+                    @endauth
                 </ul>
             </div>
         </div>

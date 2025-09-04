@@ -9,8 +9,8 @@ return new class extends Migration {
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->foreignId('raca_id')->constrained('racas')->onDelete('cascade');
-            $table->foreignId('propriedade_id')->constrained('propriedades')->onDelete('cascade');
+            $table->foreignId('raca')->constrained('racas')->onDelete('cascade');
+            $table->foreignId('propriedade')->constrained('propriedades')->onDelete('cascade');
             $table->integer('idade')->nullable();
             $table->timestamps();
         });
