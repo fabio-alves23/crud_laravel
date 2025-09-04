@@ -19,7 +19,7 @@ Route::resource('racas', RacaController::class);
 Route::resource('propriedades', PropriedadeController::class);
 
 // CRUD de Animais
-Route::resource('animais', AnimalController::class);
+Route::resource('animais', AnimalController::class)->middleware('auth');
 
 
 

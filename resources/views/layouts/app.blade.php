@@ -18,7 +18,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('racas.index') }}">Raças</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('propriedades.index') }}">Propriedades</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('animais.index') }}">Animais</a></li>
-                </ul>
+                </ul>   
 
                 <ul class="navbar-nav ms-auto">
                     @auth
