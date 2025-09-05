@@ -6,10 +6,15 @@
 <form action="{{ route('animais.store') }}" method="POST">
     @csrf
 
-    <div class="mb-3">
-        <label for="nome" class="form-label">Nome</label>
-        <input type="text" name="nome" id="nome" class="form-control" value="{{ old('nome') }}" required>
-    </div>
+   <div class="mb-3">
+    <label for="nome_do_animal" class="form-label">Nome do Animal</label>
+    <input type="text" class="form-control" name="nome_do_animal" value="{{ old('nome_do_animal', $animal->nome_do_animal ?? '') }}">
+</div>
+
+<div class="mb-3">
+    <label for="especie" class="form-label">Espécie</label>
+    <input type="text" class="form-control" name="especie" value="{{ old('especie', $animal->especie ?? '') }}">
+</div>
 
     <div class="mb-3">
         <label for="raca_id" class="form-label">Raça</label>
@@ -34,6 +39,11 @@
     <div class="mb-3">
         <label for="idade" class="form-label">Idade</label>
         <input type="number" name="idade" id="idade" class="form-control" value="{{ old('idade') }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="peso" class="form-label">Peso (kg)</label>
+        <input type="number" name="peso" id="peso" class="form-control" value="{{ old('peso') }}" step="0.01" min="0">
     </div>
 
     <button type="submit" class="btn btn-success">Salvar</button>

@@ -14,10 +14,12 @@
     <thead class="table-dark">
         <tr>
             <th>ID</th>
-            <th>Nome</th>
+            <th>Nome do Animal</th>
+            <th>Espécie</th>
             <th>Raça</th>
             <th>Propriedade</th>
             <th>Idade</th>
+            <th>Peso (kg)</th>
             <th>Ações</th>
         </tr>
     </thead>
@@ -25,10 +27,13 @@
         @foreach($animais as $animal)
         <tr>
             <td>{{ $animal->id }}</td>
-            <td>{{ $animal->nome }}</td>
+            <td>{{ $animal->nome_do_animal }}</td>
+            <td>{{ $animal->especie }}</td>
             <td>{{ $animal->raca->nome ?? '-' }}</td>
             <td>{{ $animal->propriedade->nome ?? '-' }}</td>
             <td>{{ $animal->idade }}</td>
+            <td>{{ $animal->peso !== null ? number_format($animal->peso, 2, ',', '.') : '-' }}</td> 
+
             <td>
                 <a href="{{ route('animais.edit', $animal->id) }}" class="btn btn-sm btn-warning">Editar</a>
                 <form action="{{ route('animais.destroy', $animal->id) }}" method="POST" style="display:inline-block;">

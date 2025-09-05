@@ -36,10 +36,12 @@ class AnimalController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome' => 'required|string|max:255',
+            'nome_do_animal' => 'required|string|max:255',
+            'especie' => 'required|string|max:255',
             'raca_id' => 'required|exists:racas,id',
             'propriedade_id' => 'required|exists:propriedades,id',
-            'idade' => 'required|integer|min:0'
+            'idade' => 'required|integer|min:0',
+            'peso' => 'nullable|numeric|min:0',
         ]);
 
         Animal::create($request->all());
@@ -61,10 +63,12 @@ class AnimalController extends Controller
     public function update(Request $request, Animal $animal)
     {
         $request->validate([
-            'nome' => 'required|string|max:255',
+            'nome_do_animal' => 'required|string|max:255',
+            'especie' => 'required|string|max:255',
             'raca_id' => 'required|exists:racas,id',
             'propriedade_id' => 'required|exists:propriedades,id',
-            'idade' => 'required|integer|min:0'
+            'idade' => 'required|integer|min:0',
+            'peso' => 'nullable|numeric|min:0',
         ]);
 
         $animal->update($request->all());

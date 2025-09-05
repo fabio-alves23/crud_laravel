@@ -12,7 +12,8 @@ class Animal extends Model
 
     protected $table = 'animals'; // força a usar a tabela certa
 
-    protected $fillable = ['nome', 'raca_id', 'propriedade_id', 'idade'];
+   protected $fillable = ['nome_do_animal', 'especie', 'raca_id', 'propriedade_id', 'idade', 'peso'];
+
 
     // Boot do model para adicionar eventos
     protected static function booted()
@@ -45,5 +46,5 @@ class Animal extends Model
         return $this->belongsTo(Propriedade::class);
     }
 
-
+    
 }
